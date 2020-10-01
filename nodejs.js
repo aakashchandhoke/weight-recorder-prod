@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', express.static(path.join(__dirname, 'build')))
 // Handle React routing, return all requests to React app
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 app.use(function (req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "*");
