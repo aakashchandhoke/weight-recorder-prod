@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.get("/get-worksheet", (req, res) => {
     // read from a XLS file
