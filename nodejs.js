@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/get-worksheet", (req, res) => {
     // read from a XLS file
-    let workbook = XLSX.readFile('data.txt');
+    let workbook = XLSX.readFile('data.xlsx');
 
     // get first sheet
     let first_sheet_name = workbook.SheetNames[0];
@@ -65,7 +65,7 @@ app.get("/get-worksheet", (req, res) => {
 app.post("/add-weight", (req, res) => {
     // read from a XLS file
     var wb = XLSX.utils.book_new();
-    let workbook = XLSX.readFile('data.txt');
+    let workbook = XLSX.readFile('data.xlsx');
     let ws = XLSX.utils.sheet_add_aoa(workbook.Sheets[workbook.SheetNames[0]], [[req.body.sno, req.body.date, req.body.weight]], { origin: -1 });
     workbook.Sheets[workbook.SheetNames[0]] = ws;
     XLSX.writeFile(workbook, 'data.xlsx');
